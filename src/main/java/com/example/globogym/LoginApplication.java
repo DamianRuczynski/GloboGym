@@ -15,7 +15,7 @@ public class LoginApplication extends Application {
         try {
             root = FXMLLoader.load(getClass().getResource("login-view.fxml"));
             Scene scene = new Scene(root);
-            stage.setTitle("LOGIN!");
+            stage.setTitle("GLOBO GYM");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
