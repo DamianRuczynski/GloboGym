@@ -1,5 +1,6 @@
 package com.example.globogym;
 
+import core.HelloController;
 import core.Role;
 import core.User;
 import javafx.event.ActionEvent;

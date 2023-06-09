@@ -1,6 +1,6 @@
 package com.example.globogym.gym_member;
 
-import com.example.globogym.HelloController;
+import core.HelloController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -19,6 +19,6 @@ public class GymMemberHelloController extends HelloController {
     @Override
     public void logout(ActionEvent e) throws IOException {
         System.out.println("wyloguj");
-//        super.logout(e);
+        super.logout(e);
     }
 }

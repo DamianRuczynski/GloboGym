@@ -1,4 +1,4 @@
-package com.example.globogym;
+package core;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -6,12 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloController {
+public abstract class HelloController {
     @FXML
    Label nameLabel;
 
@@ -25,6 +26,7 @@ public class HelloController {
     }
 
     public void logout(ActionEvent e) throws IOException {
+        //WHY THIS ISW NOT LOADING THIS SCENE???
         FXMLLoader loader = new FXMLLoader(getClass().getResource("com/example/globogym/login-view.fxml" ));
         root = loader.load();
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();

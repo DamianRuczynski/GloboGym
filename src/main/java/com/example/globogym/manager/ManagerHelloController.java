@@ -1,6 +1,6 @@
 package com.example.globogym.manager;
 
-import com.example.globogym.HelloController;
+import core.HelloController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
