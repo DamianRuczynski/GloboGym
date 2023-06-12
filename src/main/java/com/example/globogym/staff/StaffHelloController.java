@@ -1,11 +1,8 @@
 package com.example.globogym.staff;
 
 import core.HelloController;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-
-import java.io.IOException;
 
 public class StaffHelloController extends HelloController {
     @FXML
@@ -16,8 +13,4 @@ public class StaffHelloController extends HelloController {
         nameLabel.setText("Hello employee: " + username);
     }
 
-    @Override
-    public void logout(ActionEvent e) throws IOException {
-        super.logout(e);
-    }
 }

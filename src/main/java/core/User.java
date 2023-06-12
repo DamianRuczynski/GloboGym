@@ -3,7 +3,7 @@ package core;
 import java.text.SimpleDateFormat;
 
 public abstract class User {
-    int id;
+    protected int id;
     String username;
     String password;
     Role role;

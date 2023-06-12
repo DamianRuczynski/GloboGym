@@ -1,4 +1,4 @@
-package core;
+package com.example.globogym.training;
 
 public class Training {
     public Training showStats(int id) {

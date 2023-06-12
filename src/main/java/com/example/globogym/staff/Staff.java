@@ -1,6 +1,9 @@
-package core;
+package com.example.globogym.staff;
 
-public class Staff extends User{
+import core.Role;
+import core.User;
+
+public class Staff extends User {
     public Staff(int id, String username, String password, Role role) {
         super(id, username, password, role);
     }

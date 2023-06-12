@@ -16,9 +16,4 @@ public class GymMemberHelloController extends HelloController {
         nameLabel.setText("Hello client: " + username);
     }
 
-    @Override
-    public void logout(ActionEvent e) throws IOException {
-        System.out.println("wyloguj");
-        super.logout(e);
-    }
 }

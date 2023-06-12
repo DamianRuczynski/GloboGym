@@ -16,8 +16,4 @@ public class ManagerHelloController extends HelloController {
         nameLabel.setText("Hello manager: " + username);
     }
 
-    @Override
-    public void logout(ActionEvent e) throws IOException {
-        super.logout(e);
-    }
 }

@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.globogym.gym_member.GymMemberHelloController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.globogym.gym_member.GymMemberHelloController">
    <children>
       <Label fx:id="nameLabel" layoutX="29.0" layoutY="29.0" prefHeight="61.0" prefWidth="196.0" />
       <Button layoutX="457.0" layoutY="319.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" text="Start Training" />

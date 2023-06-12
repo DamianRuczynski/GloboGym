@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.globogym.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.globogym.LoginController">
    <children>
       <Button layoutX="216.0" layoutY="303.0" mnemonicParsing="false" onAction="#login" prefHeight="50.0" prefWidth="169.0" text="LOGIN !" />
       <TextField fx:id="nameField" layoutX="216.0" layoutY="182.0" prefHeight="33.0" prefWidth="169.0" />

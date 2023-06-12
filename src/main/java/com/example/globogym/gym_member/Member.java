@@ -1,6 +1,10 @@
-package core;
+package com.example.globogym.gym_member;
 
-import com.example.globogym.gym_member.UserFormController;
+import com.example.globogym.manager.Manager;
+import core.Account;
+import core.Role;
+import com.example.globogym.training.Training;
+import core.User;
 
 public class Member extends User {
     Account account;

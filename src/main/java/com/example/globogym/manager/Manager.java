@@ -1,6 +1,9 @@
-package core;
+package com.example.globogym.manager;
 
-public class Manager extends User{
+import core.Role;
+import core.User;
+
+public class Manager extends User {
 
     public Manager(int id, String username, String password, Role role){
         super(id, username, password, role);
