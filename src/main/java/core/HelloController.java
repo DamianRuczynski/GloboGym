@@ -28,6 +28,7 @@ public abstract class HelloController {
     public void logout(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("login-view.fxml" ));
         root = loader.load();
+        ActionLogger.setLog("user logout");
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

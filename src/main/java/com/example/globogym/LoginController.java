@@ -1,6 +1,7 @@
 package com.example.globogym;
 
 import com.example.globogym.shared.actions.Actions;
+import core.ActionLogger;
 import core.HelloController;
 import core.Role;
 import core.User;
@@ -50,12 +51,12 @@ public class LoginController {
         String password = passwordField.getText();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(checkUser(username, password) ? loadUserRoleScene() : "invalid-data-view.fxml"));
         root = loader.load();
+        ActionLogger.setLog("initial scene loaded");
         if (checkUser(username, password)) {
             HelloController controller = loader.getController();
             controller.displayName(username);
         }
         allowedActions = Actions.permissions.get(userRole);
-        System.out.println(allowedActions);
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -80,7 +81,6 @@ public class LoginController {
     }
 
     private boolean checkUser(String username, String password) {
-        boolean userValid = false;
         try {
             BufferedReader input = new BufferedReader(new FileReader("src/main/data/users.txt"));
             String line;
@@ -88,16 +88,19 @@ public class LoginController {
                 String[] credentials = line.split(",");
                 if (credentials[1].equals(username) && credentials[2].equals(password)) {
                     userRole = Role.valueOf(credentials[3].toUpperCase());
-                    userValid = true;
+                    ActionLogger.setLog("user " + username + " is logged");
+                    return true;
                 }
             }
-
-            return userValid;
+            ActionLogger.setLog("cannot find user with given username: " + username);
+            return false;
         } catch (FileNotFoundException e) {
             System.out.println("file not found");
+            ActionLogger.setLog("file not found");
             throw new RuntimeException(e);
         } catch (IOException e) {
             System.out.println("an exception occurs while reading users!");
+            ActionLogger.setLog("problem with reading users");
             throw new RuntimeException(e);
         }
     }
