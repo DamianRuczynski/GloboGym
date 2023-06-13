@@ -1,11 +1,8 @@
 package com.example.globogym.manager;
 
-import core.HelloController;
-import javafx.event.ActionEvent;
+import com.example.globogym.core.HelloController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-
-import java.io.IOException;
 
 public class ManagerHelloController extends HelloController {
     @FXML

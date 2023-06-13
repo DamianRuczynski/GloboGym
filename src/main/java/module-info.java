@@ -15,6 +15,8 @@ module com.example.globogym {
     opens com.example.globogym.staff to javafx.fxml;
     exports com.example.globogym.training;
     opens com.example.globogym.training to javafx.fxml;
-    exports com.example.globogym.shared.actions;
-    opens com.example.globogym.shared.actions to javafx.fxml;
+    exports com.example.globogym.actions;
+    opens com.example.globogym.actions to javafx.fxml;
+    exports com.example.globogym.core;
+    opens com.example.globogym.core to javafx.fxml;
 }

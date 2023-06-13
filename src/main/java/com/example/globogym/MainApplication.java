@@ -1,8 +1,6 @@
 package com.example.globogym;
 
-import com.example.globogym.shared.actions.Actions;
 import core.ActionLogger;
-import core.Role;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,8 +8,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
-import static com.example.globogym.LoginController.allowedActions;
 
 public class MainApplication extends Application {
     @Override

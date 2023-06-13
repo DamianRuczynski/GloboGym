@@ -1,6 +1,6 @@
 package com.example.globogym.staff;
 
-import core.HelloController;
+import com.example.globogym.core.HelloController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 

@@ -1,4 +1,4 @@
-package com.example.globogym.shared.actions;
+package com.example.globogym.actions;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
