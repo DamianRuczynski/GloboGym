@@ -41,6 +41,7 @@ public class LoginController {
         root = loader.load();
         ActionLogger.setLog("initial scene loaded");
         if (checkUser(username, password)) {
+//            loggedUser = createUser(username, password);
             HelloController controller = loader.getController();
             controller.displayName(username);
             allowedActions = Actions.permissions.get(userRole);
@@ -52,6 +53,12 @@ public class LoginController {
         stage.setScene(scene);
         stage.show();
     }
+
+//    private User createUser(String username, String password) {
+////        if(userRole == Role.MANAGER){
+//////            here read from file managers.txt and craete user with data find in given username
+////        }
+//    }
 
     public void returnToHomeScreen(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("login-view.fxml"));

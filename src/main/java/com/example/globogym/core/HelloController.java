@@ -2,11 +2,12 @@ package com.example.globogym.core;
 
 import com.example.globogym.MainApplication;
 import com.example.globogym.LoginController;
-import com.example.globogym.gym_member.Member;
-import com.example.globogym.manager.Manager;
+import com.example.globogym.actions.Actions;
 import core.ActionLogger;
-import core.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -15,7 +16,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -36,9 +36,11 @@ public class HelloController {
     @FXML
     Pane myPane;
 
+    public static ObservableList<Button> actionButtons = FXCollections.observableArrayList();
     private Stage stage;
     private Scene scene;
     private Parent root;
+
 
     public void displayName(String username) {
         nameLabel.setText("Hello: " + username);
@@ -55,6 +57,14 @@ public class HelloController {
 
         for (String action : allowedActions) {
             Button button = new Button(action);
+            button.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    Actions.callMethod(action);
+                    ActionLogger.setLog( "execute: " + action);
+                }
+            });
+            actionButtons.add(button);
             actionListRoot.getChildren().add(button);
         }
     }

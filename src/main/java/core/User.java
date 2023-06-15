@@ -18,4 +18,8 @@ public abstract class User {
         this.role = role;
 
     }
+
+    public String getName(){
+        return this.name;
+    }
 }
