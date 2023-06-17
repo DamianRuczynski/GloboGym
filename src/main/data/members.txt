@@ -1,0 +1,2 @@
+0,romek,welcome,member,Roman,Wojciechowski,23/07/1985,0,100
+1,,,member,John,Douee,23/07/1997,0,120

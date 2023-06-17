@@ -2,16 +2,37 @@ package com.example.globogym.gym_member;
 
 import com.example.globogym.manager.Manager;
 import core.Account;
+import core.ActionLogger;
 import core.Role;
 import com.example.globogym.training.Training;
 import core.User;
 
-public class Member extends User {
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Member extends User{
+    String name;
+    String surname;
+    Date birthdate;
     Account account;
     Manager manager;
 
-    public Member(int id, String username, String password, Role role) {
+    public Member(int id, String username, String password, Role role, String name, String surname, String birthdate, String managerId, String accountId) {
         super(id, username, password, role);
+        try {
+            this.name = name;
+            this.surname = surname;
+            this.birthdate = new SimpleDateFormat("dd/MM/yyyy").parse(birthdate);
+            this.manager = Manager.getManagerById(Integer.parseInt(managerId));
+            this.account = Account.haveAccountWithId(Integer.parseInt(accountId)) ? Account.getAccount(Integer.parseInt(accountId)) : new Account(0);
+            ActionLogger.setLog("user " + this.name + " created!");
+        } catch (ParseException e) {
+            System.out.println("cannot create user");
+            ActionLogger.setLog("cannot create user");
+        }finally {
+            System.out.println(this.name + " " + this.surname + " born in: " + this.birthdate);
+        }
     }
 
     public void signUpForTraining(Training training) {

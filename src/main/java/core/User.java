@@ -7,9 +7,6 @@ public abstract class User {
     String username;
     String password;
     Role role;
-    SimpleDateFormat birthdate;
-    String name;
-    String surname;
 
     public User(int id, String username, String password, Role role){
         this.id = id;
@@ -19,7 +16,4 @@ public abstract class User {
 
     }
 
-    public String getName(){
-        return this.name;
-    }
 }

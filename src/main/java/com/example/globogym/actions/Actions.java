@@ -3,6 +3,9 @@ package com.example.globogym.actions;
 import core.Role;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
+import javafx.scene.control.DialogEvent;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -41,6 +44,20 @@ public class Actions {
 
     public static void PayAccount() {
         System.out.println("Paying account...");
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+        a.setTitle("Pay Account");
+        a.setHeaderText("Are you sure?");
+        a.setOnCloseRequest(new EventHandler<DialogEvent>() {
+            @Override
+            public void handle(DialogEvent dialogEvent) {
+                System.out.println(dialogEvent);
+                if(dialogEvent.isConsumed()){
+                    System.out.println("hahawhudhawufhaeifahw");
+                }
+                System.out.println("niepotwierdzono");
+            }
+        });
+        a.show();
     }
 
     public static void editData() {
