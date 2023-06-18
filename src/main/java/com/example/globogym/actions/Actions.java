@@ -18,11 +18,6 @@ public class Actions {
         permissions.put(Role.MANAGER, Arrays.asList("showTrainings", "setTraining", "showAccount", "editData", "showStats", "createMember", "addTraining", "deleteTraining", "addEmployee", "editGreetings", "showAllMembers", "showClubStats"));
     }
 
-    public static void setEventOnActionButton(List<String> allowedActions) {
-        for (String action : allowedActions) {
-            System.out.println(action);
-        }
-    }
 
     public static void showTrainings() {
         System.out.println("Showing trainings...");
@@ -32,7 +27,7 @@ public class Actions {
         System.out.println("Setting training...");
     }
 
-    public static void SignOutFromTraining() {
+    public static void signOutFromTraining() {
         System.out.println("Signing out from training...");
     }
 
@@ -40,7 +35,7 @@ public class Actions {
         System.out.println("Showing account...");
     }
 
-    public static void PayAccount() {
+    public static void payAccount() {
         ActionLogger.setLog("account payment is started");
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
         a.setTitle("Pay Account");
@@ -54,7 +49,7 @@ public class Actions {
     }
 
     public static void editData() {
-        System.out.println("Editing data...");
+        ActionLogger.setLog("Editing user data...");
     }
 
     public static void showStats() {
@@ -62,7 +57,7 @@ public class Actions {
     }
 
     public static void createMember() {
-        System.out.println("Creating member...");
+        ActionLogger.setLog("Creating new member...");
     }
 
     public static void addTraining() {
@@ -106,8 +101,9 @@ public class Actions {
     public static String callMethod(String methodName) {
         try {
             Actions.class.getMethod(methodName).invoke(null);
+            ActionLogger.setLog("method: " + methodName + " is invoking");
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            ActionLogger.setLog("Error: " + e.getMessage());
         }
         return generateViewFileName(methodName);
     }

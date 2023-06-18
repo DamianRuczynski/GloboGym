@@ -11,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -60,7 +61,6 @@ public class HelloController {
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-//                    Actions.callMethod(action);
                     ActionLogger.setLog( "execute: " + action);
                     loadOutlet(Actions.callMethod(action));
                 }
@@ -77,7 +77,8 @@ public class HelloController {
             FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource(userRoleScene));
             System.out.println(MainApplication.class.getResource(userRoleScene));
             Node newContent = loader.load();
-            outlet.setCenter(newContent); /// in future use this method also for load proper view depends on button clik
+            outlet.setCenter(newContent);
+            outlet.setAlignment(outlet, Pos.CENTER);/// in future use this method also for load proper view depends on button clik
         } catch (IOException e) {
             e.printStackTrace();
         }
