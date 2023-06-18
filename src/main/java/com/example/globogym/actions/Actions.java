@@ -1,31 +1,29 @@
 package com.example.globogym.actions;
 
+import com.example.globogym.LoginController;
+import com.example.globogym.gym_member.Member;
+import core.ActionLogger;
 import core.Role;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
-import javafx.scene.control.DialogEvent;
+import javafx.scene.control.ButtonType;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Actions {
     public static Map<Role, List<String>> permissions = new HashMap<>();
 
     static {
-        permissions.put(Role.MEMBER, Arrays.asList("showTrainings", "setTraining","SignOutFromTraining", "showAccount","PayAccount", "editData", "showStats"));
+        permissions.put(Role.MEMBER, Arrays.asList("showTrainings", "setTraining", "SignOutFromTraining", "showAccount", "PayAccount", "editData", "showStats"));
         permissions.put(Role.STAFF, Arrays.asList("showTrainings", "setTraining", "showAccount", "editData", "showStats", "createMember", "addTraining", "deleteTraining"));
         permissions.put(Role.MANAGER, Arrays.asList("showTrainings", "setTraining", "showAccount", "editData", "showStats", "createMember", "addTraining", "deleteTraining", "addEmployee", "editGreetings", "showAllMembers", "showClubStats"));
     }
 
-    public static void setEventOnActionButton(List<String> allowedActions){
-         for(String action : allowedActions){
-             System.out.println(action);
-         }
+    public static void setEventOnActionButton(List<String> allowedActions) {
+        for (String action : allowedActions) {
+            System.out.println(action);
+        }
     }
+
     public static void showTrainings() {
         System.out.println("Showing trainings...");
     }
@@ -43,21 +41,16 @@ public class Actions {
     }
 
     public static void PayAccount() {
-        System.out.println("Paying account...");
+        ActionLogger.setLog("account payment is started");
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
         a.setTitle("Pay Account");
-        a.setHeaderText("Are you sure?");
-        a.setOnCloseRequest(new EventHandler<DialogEvent>() {
-            @Override
-            public void handle(DialogEvent dialogEvent) {
-                System.out.println(dialogEvent);
-                if(dialogEvent.isConsumed()){
-                    System.out.println("hahawhudhawufhaeifahw");
-                }
-                System.out.println("niepotwierdzono");
-            }
-        });
-        a.show();
+        a.setHeaderText("Your account will be active!");
+        Optional<ButtonType> result = a.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            ((Member) LoginController.loggedUser).payCard();
+        } else {
+            ActionLogger.setLog("payment of the card is closed");
+        }
     }
 
     public static void editData() {

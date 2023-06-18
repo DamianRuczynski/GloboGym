@@ -35,6 +35,7 @@ public class Member extends User{
         }
     }
 
+
     public void signUpForTraining(Training training) {
         training.setUser(this.id);
     }
@@ -56,7 +57,9 @@ public class Member extends User{
     }
 
     public void payCard() {
+        ActionLogger.setLog("the card is being paid...");
         this.account.makeActive();
+        ActionLogger.setLog("user: "+ this.name + " has paid his account");
     }
 
     public void edit() {
