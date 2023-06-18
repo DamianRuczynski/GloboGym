@@ -60,19 +60,22 @@ public class HelloController {
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    Actions.callMethod(action);
+//                    Actions.callMethod(action);
                     ActionLogger.setLog( "execute: " + action);
+                    loadOutlet(Actions.callMethod(action));
                 }
             });
             actionButtons.add(button);
             actionListRoot.getChildren().add(button);
         }
+        setTimeout(() -> System.out.println("test"), 1000);
     }
 
 
     public void loadOutlet(String userRoleScene) {
         try {
             FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource(userRoleScene));
+            System.out.println(MainApplication.class.getResource(userRoleScene));
             Node newContent = loader.load();
             outlet.setCenter(newContent); /// in future use this method also for load proper view depends on button clik
         } catch (IOException e) {
@@ -91,4 +94,15 @@ public class HelloController {
         stage.show();
     }
 
+    public static void setTimeout(Runnable runnable, int delay){
+        new Thread(() -> {
+            try {
+                Thread.sleep(delay);
+                runnable.run();
+            }
+            catch (Exception e){
+                System.err.println(e);
+            }
+        }).start();
+    }
 }

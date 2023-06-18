@@ -13,7 +13,7 @@ public class Actions {
     public static Map<Role, List<String>> permissions = new HashMap<>();
 
     static {
-        permissions.put(Role.MEMBER, Arrays.asList("showTrainings", "setTraining", "SignOutFromTraining", "showAccount", "PayAccount", "editData", "showStats"));
+        permissions.put(Role.MEMBER, Arrays.asList("showTrainings", "setTraining", "signOutFromTraining", "showAccount", "payAccount", "editData", "showStats"));
         permissions.put(Role.STAFF, Arrays.asList("showTrainings", "setTraining", "showAccount", "editData", "showStats", "createMember", "addTraining", "deleteTraining"));
         permissions.put(Role.MANAGER, Arrays.asList("showTrainings", "setTraining", "showAccount", "editData", "showStats", "createMember", "addTraining", "deleteTraining", "addEmployee", "editGreetings", "showAllMembers", "showClubStats"));
     }
@@ -89,12 +89,27 @@ public class Actions {
         System.out.println("Showing club stats...");
     }
 
-    public static void callMethod(String methodName) {
+    private static String generateViewFileName(String methodName) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("actions/");
+        for (char c : methodName.toCharArray()) {
+            if (Character.isUpperCase(c)) {
+                sb.append('-').append(Character.toLowerCase(c));
+            } else {
+                sb.append(c);
+            }
+        }
+        sb.append("-view.fxml");
+        return sb.toString();
+    }
+
+    public static String callMethod(String methodName) {
         try {
             Actions.class.getMethod(methodName).invoke(null);
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
+        return generateViewFileName(methodName);
     }
 
 }
