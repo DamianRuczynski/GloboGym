@@ -70,4 +70,25 @@ public class Member extends User{
     public Training showStats(Training training, int id) {
         return training.showStats(id); /// method will display duration od training and name of the exercises he made
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getSurname() {
+        return this.surname;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+
+    public Date getBirthDate() {
+        return this.birthdate;
+    }
 }

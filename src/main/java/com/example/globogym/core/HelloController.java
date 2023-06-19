@@ -68,7 +68,7 @@ public class HelloController {
             actionButtons.add(button);
             actionListRoot.getChildren().add(button);
         }
-        setTimeout(() -> System.out.println("test"), 1000);
+//        setTimeout(() -> System.out.println("testowy setTimeout"), 1000);
     }
 
 

@@ -23,4 +23,6 @@ public class Manager extends User {
     public static Manager getManagerById(int managerId) {
         return (managerId < managersList.size() && managerId > 0) ?  managersList.get(managerId) : null; // so propably when in database of user manger id will be "ko" ot returns 0 as an index. it can be ok
     }
+
+
 }

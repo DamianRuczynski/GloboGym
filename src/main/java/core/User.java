@@ -4,8 +4,8 @@ import java.text.SimpleDateFormat;
 
 public abstract class User {
     protected int id;
-    String username;
-    String password;
+    public String username;
+    private String password;
     Role role;
 
     public User(int id, String username, String password, Role role){
@@ -14,6 +14,16 @@ public abstract class User {
         this.password = password;
         this.role = role;
 
+    }
+
+    public String getUsername(){
+        return this.username;
+    }
+    public String getPassword(){
+        return this.password;
+    }
+    public int getId() {
+        return this.id;
     }
 
 }
