@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #777;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.globogym.core.HelloController">
    <children>
       <Button defaultButton="true" layoutX="800.0" layoutY="14.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="86.0" text="LOGOUT" AnchorPane.rightAnchor="14.0" />
@@ -20,8 +19,13 @@
             </Label>
          </children>
       </VBox>
-      <BorderPane fx:id="outlet" layoutX="158.0" layoutY="67.0" prefHeight="508.0" prefWidth="728.0" style="-fx-border-color: #fff;" >
+      <BorderPane fx:id="outlet" layoutX="158.0" layoutY="67.0" prefHeight="508.0" prefWidth="728.0" style="-fx-border-color: #fff;">
 
       </BorderPane>
+      <Label fx:id="greetingsLabel" alignment="CENTER" layoutX="158.0" layoutY="25.0" prefHeight="38.0" prefWidth="602.0" text="PRZYWITANIE MENAGAERA" textFill="WHITE">
+         <font>
+            <Font name="Bookman Old Style Italic" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

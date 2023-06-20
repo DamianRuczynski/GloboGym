@@ -16,17 +16,8 @@ public class Staff extends User {
     private int salary;
 
     public Staff(int id, String username, String password, Role role, String name, String surname, String birthdate, int salary) {
-        super(id, username, password, role);
-        try {
-            this.name = name;
-            this.surname = surname;
-            this.birthdate = new SimpleDateFormat("dd/MM/yyyy").parse(birthdate);
-            this.salary = salary;
-        } catch (ParseException e) {
-            ActionLogger.setLog("cannot create user");
-        } finally {
-            System.out.println(this.name + " earn: " + this.salary);
-        }
+        super(id, username, password, role, name, surname, birthdate);
+        this.salary = salary;
     }
 //    public Staff(int id, String username, String password, Role role) {
 //        super(id, username, password, role);

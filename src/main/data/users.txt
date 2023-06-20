@@ -3,3 +3,12 @@ S0,test,welcome,staff
 U0,romek,welcome,member
 U1,,,member
 M1,tomaszek,,manager
+M2,anna,ann,manager
+M3,martin,,manager
+M4,lucy,,manager
+M5,robert,,manager
+M6,sophie,,manager
+M7,michael,,manager
+M8,laura,,manager
+M9,peter,,manager
+M10,julie,,manager

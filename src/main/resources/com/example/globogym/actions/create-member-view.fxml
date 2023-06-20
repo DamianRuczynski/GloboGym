@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.globogym.actions.CreateUserForm">
+<AnchorPane prefHeight="500.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.globogym.actions.CreateUserForm">
    <children>
-      <VBox layoutX="36.0" layoutY="91.0" prefHeight="286.0" prefWidth="257.0">
+      <VBox layoutX="43.0" layoutY="124.0" prefHeight="353.0" prefWidth="258.0">
          <children>
             <Label prefHeight="30.0" prefWidth="258.0" text="NAME" textFill="WHITE">
                <font>
@@ -74,10 +74,10 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </Label>
-            <ListView fx:id="managerListField" prefHeight="68.0" prefWidth="255.0" />
+            <ListView fx:id="managerListField" prefHeight="101.0" prefWidth="258.0" />
          </children>
       </VBox>
-      <VBox layoutX="316.0" layoutY="91.0" prefHeight="135.0" prefWidth="249.0">
+      <VBox layoutX="416.0" layoutY="124.0" prefHeight="135.0" prefWidth="249.0">
          <children>
             <Label prefHeight="30.0" prefWidth="258.0" text="USERNAME" textFill="WHITE">
                <font>
@@ -113,12 +113,12 @@
             </TextField>
          </children>
       </VBox>
-      <Label alignment="CENTER" layoutX="185.0" layoutY="14.0" prefHeight="72.0" prefWidth="231.0" style="-fx-background-color: #444;" text="CREATE NEW MEMBER" textFill="#fffefe">
+      <Label alignment="CENTER" layoutX="244.0" layoutY="52.0" prefHeight="72.0" prefWidth="231.0" style="-fx-background-color: #444;" text="CREATE NEW MEMBER" textFill="#fffefe">
          <font>
             <Font name="Candara" size="20.0" />
          </font>
       </Label>
-      <HBox layoutX="316.0" layoutY="311.0" prefHeight="66.0" prefWidth="249.0">
+      <HBox layoutX="416.0" layoutY="393.0" prefHeight="66.0" prefWidth="249.0">
          <children>
             <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelForm" prefHeight="47.0" prefWidth="127.0" style="-fx-background-color: #f00;" text="CANCEL" textFill="WHITE">
                <HBox.margin>

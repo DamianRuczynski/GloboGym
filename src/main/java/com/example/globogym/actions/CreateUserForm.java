@@ -8,10 +8,7 @@ import core.Role;
 import core.User;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -36,14 +33,27 @@ public class CreateUserForm implements Initializable {
         usernameField.setText(member.getUsername());
         System.out.println(LoginController.loggedUser.username);
         passwordField.setText(member.getPassword());
+        System.out.println(member.getBirthDate());
         birthDateField.setValue(member.getBirthDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
     }
 
     private void populateManagerFields() {
         System.out.println("manadzerskie costam");
-//        managerListField.getItems().add(new Manager());
-//        managerListField.getItems().add("Manager 2");
-//        managerListField.getItems().add("Manager 3");
+        for(Manager m : Manager.managersList){
+            managerListField.getItems().add(m);
+        }
+        managerListField.setCellFactory(p -> new ListCell<Manager>(){
+            @Override
+            protected void updateItem(Manager item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty || item == null || item.getFullName() == null) {
+                    setText(null);
+                } else {
+                    setText(item.getFullName());
+                }
+            }
+        });
     }
 
     public void saveForm() {
@@ -58,8 +68,8 @@ public class CreateUserForm implements Initializable {
             String password = passwordField.getText();
             LocalDate birthDate = birthDateField.getValue();
             Manager selectedManager = managerListField.getSelectionModel().getSelectedItem();
-            UserFormController.saveUser(username, password, name, surname, birthDate, 3);
-            System.out.println("Selected Manager: " + selectedManager);
+            UserFormController.saveUser(username, password, name, surname, birthDate, selectedManager.getId());
+            System.out.println("Selected Manager: " + selectedManager.getName());
         }
 
         System.out.println("Form saved!");

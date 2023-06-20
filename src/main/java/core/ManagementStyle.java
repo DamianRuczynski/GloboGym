@@ -2,11 +2,14 @@ package core;
 
 public enum ManagementStyle {
     AUTOCRATIC,
+    AUTHORITATIVE,
     PERSUASIVE,
     PATERNALISTIC,
     DEMOCRATIC,
+    CHARISMATIC,
     CONSULTATIVE,
     TRANSFORMATIONAL,
     LAISSEZ_FAIRE,
     VISIONARY,
+    COACHING,
 }

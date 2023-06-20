@@ -46,6 +46,7 @@ public class LoginController {
         ActionLogger.setLog("initial scene loaded");
         if (checkUser(username, password)) {
             loggedUser = readUser(username, password, String.valueOf(userRole).toLowerCase());
+            Manager.generateManagersList();
             HelloController controller = loader.getController();
             controller.displayName(username);
             allowedActions = Actions.permissions.get(userRole);

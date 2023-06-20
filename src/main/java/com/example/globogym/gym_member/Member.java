@@ -12,27 +12,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Member extends User{
-    String name;
-    String surname;
-    Date birthdate;
     Account account;
     Manager manager;
 
     public Member(int id, String username, String password, Role role, String name, String surname, String birthdate, String managerId, String accountId) {
-        super(id, username, password, role);
-        try {
-            this.name = name;
-            this.surname = surname;
-            this.birthdate = new SimpleDateFormat("dd/MM/yyyy").parse(birthdate);
+        super(id, username, password, role, name, surname, birthdate);
             this.manager = Manager.getManagerById(Integer.parseInt(managerId));
             this.account = Account.haveAccountWithId(Integer.parseInt(accountId)) ? Account.getAccount(Integer.parseInt(accountId)) : new Account(0);
-            ActionLogger.setLog("user " + this.name + " created!");
-        } catch (ParseException e) {
-            System.out.println("cannot create user");
-            ActionLogger.setLog("cannot create user");
-        }finally {
-            System.out.println(this.name + " " + this.surname + " born in: " + this.birthdate);
-        }
     }
 
 
@@ -59,7 +45,7 @@ public class Member extends User{
     public void payCard() {
         ActionLogger.setLog("the card is being paid...");
         this.account.makeActive();
-        ActionLogger.setLog("user: "+ this.name + " has paid his account");
+        ActionLogger.setLog("user: "+ getName() + " has paid his account");
     }
 
     public void edit() {
@@ -69,26 +55,5 @@ public class Member extends User{
 
     public Training showStats(Training training, int id) {
         return training.showStats(id); /// method will display duration od training and name of the exercises he made
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public String getSurname() {
-        return this.surname;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-
-    public Date getBirthDate() {
-        return this.birthdate;
     }
 }

@@ -28,7 +28,7 @@ import java.util.List;
 
 public class HelloController {
     @FXML
-    Label nameLabel, greetings;
+    Label nameLabel, greetingsLabel;
     @FXML
     VBox actionListRoot;
     @FXML
@@ -45,7 +45,7 @@ public class HelloController {
 
 
     public void displayName(String username) {
-        nameLabel.setText("Hello: " + username);
+        nameLabel.setText("Hello: " + (LoginController.loggedUser.getName()));
     }
 
 //    public void showMessage(User user){
@@ -58,7 +58,9 @@ public class HelloController {
         actionListRoot.setPadding(new Insets(10));
 
         for (String action : allowedActions) {
-            Button button = new Button(action);
+            Button button = new Button(buildName(action));
+            button.setStyle("-fx-background-color: black; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 3px;");
+            button.prefWidthProperty().bind(actionListRoot.widthProperty());
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
@@ -70,6 +72,17 @@ public class HelloController {
             actionListRoot.getChildren().add(button);
         }
 //        setTimeout(() -> System.out.println("testowy setTimeout"), 1000);
+    }
+
+    private String buildName(String action) {
+        String[] words = action.split("(?=[A-Z])");
+        StringBuilder result = new StringBuilder();
+        for (String word : words) {
+            result.append(word.substring(0, 1).toUpperCase());
+            result.append(word.substring(1).toLowerCase());
+            result.append(" ");
+        }
+        return result.toString().trim();
     }
 
 
