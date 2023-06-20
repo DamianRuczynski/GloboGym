@@ -3,8 +3,8 @@ package com.example.globogym.core;
 import com.example.globogym.MainApplication;
 import com.example.globogym.LoginController;
 import com.example.globogym.actions.Actions;
+import com.example.globogym.manager.Manager;
 import core.ActionLogger;
-import core.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -100,6 +100,7 @@ public class HelloController {
 
     public void logout(ActionEvent e) throws IOException {
         LoginController.loggedUser = null;
+        Manager.managersList = null;
         FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("login-view.fxml"));
         root = loader.load();
         ActionLogger.setLog("user logout");

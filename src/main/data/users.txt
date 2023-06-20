@@ -12,3 +12,7 @@ M7,michael,,manager
 M8,laura,,manager
 M9,peter,,manager
 M10,julie,,manager
+U2,loganno,welcome,member
+U3,garonnn,welcome,member
+U4,tranHardWork,welcome,member
+U3,michmich,welcome,member

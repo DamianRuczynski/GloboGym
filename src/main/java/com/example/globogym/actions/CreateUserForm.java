@@ -5,13 +5,11 @@ import com.example.globogym.gym_member.Member;
 import com.example.globogym.gym_member.UserFormController;
 import com.example.globogym.manager.Manager;
 import core.Role;
-import core.User;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -39,10 +37,10 @@ public class CreateUserForm implements Initializable {
 
     private void populateManagerFields() {
         System.out.println("manadzerskie costam");
-        for(Manager m : Manager.managersList){
+        for (Manager m : Manager.managersList) {
             managerListField.getItems().add(m);
         }
-        managerListField.setCellFactory(p -> new ListCell<Manager>(){
+        managerListField.setCellFactory(p -> new ListCell<Manager>() {
             @Override
             protected void updateItem(Manager item, boolean empty) {
                 super.updateItem(item, empty);
@@ -58,15 +56,15 @@ public class CreateUserForm implements Initializable {
 
     public void saveForm() {
         if (LoginController.userRole == Role.MEMBER) {
-                Member member = (Member) LoginController.loggedUser;
-                member.setName(nameField.getText());
-                member.setSurname(surnameField.getText());
-        } else if (LoginController.userRole == Role.MANAGER) {
+            Member member = (Member) LoginController.loggedUser;
+            member.setName(nameField.getText());
+            member.setSurname(surnameField.getText());
+        } else {
             String name = nameField.getText();
             String surname = surnameField.getText();
             String username = usernameField.getText();
             String password = passwordField.getText();
-            LocalDate birthDate = birthDateField.getValue();
+            String birthDate = birthDateField.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
             Manager selectedManager = managerListField.getSelectionModel().getSelectedItem();
             UserFormController.saveUser(username, password, name, surname, birthDate, selectedManager.getId());
             System.out.println("Selected Manager: " + selectedManager.getName());
