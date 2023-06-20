@@ -31,7 +31,6 @@ public class CreateUserForm implements Initializable {
         usernameField.setText(member.getUsername());
         System.out.println(LoginController.loggedUser.username);
         passwordField.setText(member.getPassword());
-        System.out.println(member.getBirthDate());
         birthDateField.setValue(member.getBirthDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
     }
 
@@ -55,16 +54,14 @@ public class CreateUserForm implements Initializable {
     }
 
     public void saveForm() {
+        String name = nameField.getText();
+        String surname = surnameField.getText();
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+        String birthDate = birthDateField.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         if (LoginController.userRole == Role.MEMBER) {
-            Member member = (Member) LoginController.loggedUser;
-            member.setName(nameField.getText());
-            member.setSurname(surnameField.getText());
+            UserFormController.editUser(LoginController.loggedUser.getId(),username, password, name, surname, birthDate );
         } else {
-            String name = nameField.getText();
-            String surname = surnameField.getText();
-            String username = usernameField.getText();
-            String password = passwordField.getText();
-            String birthDate = birthDateField.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
             Manager selectedManager = managerListField.getSelectionModel().getSelectedItem();
             UserFormController.saveUser(username, password, name, surname, birthDate, selectedManager.getId());
             System.out.println("Selected Manager: " + selectedManager.getName());

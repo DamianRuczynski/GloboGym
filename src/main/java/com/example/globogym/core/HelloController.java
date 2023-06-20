@@ -24,6 +24,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HelloController {
@@ -100,7 +101,7 @@ public class HelloController {
 
     public void logout(ActionEvent e) throws IOException {
         LoginController.loggedUser = null;
-        Manager.managersList = null;
+        Manager.managersList = new ArrayList<>();
         FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("login-view.fxml"));
         root = loader.load();
         ActionLogger.setLog("user logout");

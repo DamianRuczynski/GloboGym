@@ -7,10 +7,6 @@ import core.Role;
 import com.example.globogym.training.Training;
 import core.User;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class Member extends User{
     Account account;
     Manager manager;
@@ -56,4 +52,14 @@ public class Member extends User{
     public Training showStats(Training training, int id) {
         return training.showStats(id); /// method will display duration od training and name of the exercises he made
     }
+
+    public int getManagerId() {
+        return (this.manager.getId() > 0 && this.manager.getId() < Manager.managersList.size()) ? this.manager.getId() : 0 ;
+    }
+
+
+    public int getAccount() {
+        return this.account.getBalance();
+    }
+
 }

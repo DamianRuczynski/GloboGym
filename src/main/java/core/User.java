@@ -1,5 +1,6 @@
 package core;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,7 +27,7 @@ public abstract class User {
             ActionLogger.setLog("user " + this.name + " logged!");
         } catch (ParseException e) {
             ActionLogger.setLog("cannot create user");
-        }finally {
+        } finally {
 //            System.out.println(this.name + " " + this.surname + " born in: " + this.birthdate);
         }
         ;
@@ -70,5 +71,29 @@ public abstract class User {
 
     public String getFullName() {
         return this.name + " " + this.surname;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+    this.password = password;
+    }
+
+    public void setBirthDate(String birthdate) {
+        try {
+            this.birthdate = new SimpleDateFormat("dd/MM/yyyy").parse(birthdate);
+            System.out.print("Z USERA ");
+            System.out.println(this.birthdate);
+        } catch (ParseException e) {
+            ActionLogger.setLog("error occurs while parsing data");
+        }
+    }
+
+    public String getBirthDateString() {
+        DateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String formattedDate = outputFormat.format(getBirthDate());
+        return formattedDate;
     }
 }

@@ -14,8 +14,8 @@ public class Actions {
 
     static {
         permissions.put(Role.MEMBER, Arrays.asList("showTrainings", "setTraining", "signOutFromTraining", "showAccount", "payAccount", "editData", "showStats"));
-        permissions.put(Role.STAFF, Arrays.asList("showTrainings", "setTraining", "showAccount", "editData", "showStats", "createMember", "addTraining", "deleteTraining"));
-        permissions.put(Role.MANAGER, Arrays.asList("showTrainings", "setTraining", "showAccount", "editData", "showStats", "createMember", "addTraining", "deleteTraining", "addEmployee", "editGreetings", "showAllMembers", "showClubStats"));
+        permissions.put(Role.STAFF, Arrays.asList("showTrainings", "setTraining", "showAccount", "showStats", "createMember", "addTraining", "deleteTraining"));
+        permissions.put(Role.MANAGER, Arrays.asList("showTrainings", "setTraining", "showAccount", "showStats", "createMember", "addTraining", "deleteTraining", "addEmployee", "editGreetings", "showAllMembers", "showClubStats"));
     }
 
 
