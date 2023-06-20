@@ -4,6 +4,7 @@ import com.example.globogym.MainApplication;
 import com.example.globogym.LoginController;
 import com.example.globogym.actions.Actions;
 import core.ActionLogger;
+import core.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

@@ -2,6 +2,8 @@ package com.example.globogym;
 
 import com.example.globogym.actions.Actions;
 import com.example.globogym.gym_member.Member;
+import com.example.globogym.manager.Manager;
+import com.example.globogym.staff.Staff;
 import core.ActionLogger;
 import com.example.globogym.core.HelloController;
 import core.Role;
@@ -83,9 +85,9 @@ public class LoginController {
                 if (credentials[1].equals(username) && credentials[2].equals(password)) {
                     ActionLogger.setLog("User successfully loaded");
                     return switch (userRole) {
-                        case STAFF -> null;
+                        case STAFF -> new Staff(Integer.parseInt(credentials[0]), credentials[1], credentials[2], userRole, credentials[3], credentials[4], credentials[5], Integer.parseInt(credentials[6]));
                         case MEMBER -> new Member(Integer.parseInt(credentials[0]), credentials[1], credentials[2], userRole, credentials[4], credentials[5], credentials[6], credentials[7], credentials[8]);
-                        case MANAGER -> null;
+                        case MANAGER -> new Manager(Integer.parseInt(credentials[0]), credentials[1], credentials[2], userRole, credentials[3], credentials[4], credentials[5], Integer.parseInt(credentials[6]), credentials[7],credentials[8]);
                     };
                 }
             }

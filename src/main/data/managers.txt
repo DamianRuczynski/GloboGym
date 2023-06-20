@@ -1,1 +1,2 @@
-M0,damian,welcome,manager
+0,damian,welcome,Damian,Ruczynski,23/03/2002,15000,visionary,Hi There
+1,tomaszek,,Tomasz,Wojewodzki,18/09/2000,10000,autocratic,Hello

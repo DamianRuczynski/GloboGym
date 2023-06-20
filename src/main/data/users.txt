@@ -2,3 +2,4 @@ M0,damian,welcome,manager
 S0,test,welcome,staff
 U0,romek,welcome,member
 U1,,,member
+M1,tomaszek,,manager

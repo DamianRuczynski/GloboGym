@@ -16,6 +16,9 @@ public abstract class User {
 
     }
 
+//    public static String getName() {
+//    }
+
     public String getUsername(){
         return this.username;
     }

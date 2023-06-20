@@ -1,0 +1,2 @@
+0,test,welcome,Karol,Krol,23/09/1999,5600
+1,staff,,Nikola,Krol,23/09/1997,5800
