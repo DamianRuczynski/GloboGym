@@ -3,7 +3,6 @@ package com.example.globogym.actions;
 import com.example.globogym.gym_member.Member;
 import com.example.globogym.training.Training;
 import core.ActionLogger;
-import javafx.fxml.Initializable;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -17,15 +16,16 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
-public class TrainingController implements Initializable {
+public class TrainingController {
 
     public static ArrayList<Training> listOfTrainings;
 
     public static HashMap<Integer, ArrayList<Member>> trainingsWithMembers;
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+    public static void initialize(URL url, ResourceBundle resourceBundle) {
 //        trainingsWithMembers = generateTrainingsAssigning(); STH WRONG WITH READING FROM THE FILE NEED TO CONTROL IT
 //        listOfTrainings = generateTrainingsList();
         System.out.println("zaladowany");
@@ -45,10 +45,9 @@ public class TrainingController implements Initializable {
                 String trainingName = trainingData[1];
                 int roomId = Integer.parseInt(trainingData[2]);
                 Date startDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(trainingData[3]);
-                Date endDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(trainingData[4]);
-                int coachId = Integer.parseInt(trainingData[5]);
+                int coachId = Integer.parseInt(trainingData[4]);
 
-                Training training = new Training(trainingId, trainingName, roomId, startDate, endDate, coachId);
+                Training training = new Training(trainingId, trainingName, roomId, startDate, coachId);
                 trainingsList.add(training);
             }
             input.close();

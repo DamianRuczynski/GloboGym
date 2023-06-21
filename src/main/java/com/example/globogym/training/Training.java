@@ -10,17 +10,15 @@ public class Training {
     int id;
     String name;
     int roomId;
-    Date startDate;
-    Date endDate;
+    Date date;
     Staff coach;
     ArrayList<Member> listOfMembers;
 
-    public Training(int id, String name, int roomId, Date startDate, Date endDate, int coachId) {
+    public Training(int id, String name, int roomId, Date date, int coachId) {
         this.id = id;
         this.name = name;
         this.roomId = roomId;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.date = date;
         this.coach = Staff.getCoachById(coachId);
         this.listOfMembers = TrainingController.trainingsWithMembers.get(id);
     }

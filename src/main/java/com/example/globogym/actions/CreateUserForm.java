@@ -79,12 +79,8 @@ public class CreateUserForm implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ActionLogger.setLog("initialize userForm");
         switch (LoginController.userRole) {
-            case MEMBER:
-                populateMemberFields();
-                break;
-            case MANAGER:
-                populateManagerFields();
-                break;
+            case MEMBER -> populateMemberFields();
+            case STAFF, MANAGER -> populateManagerFields();
         }
     }
 }

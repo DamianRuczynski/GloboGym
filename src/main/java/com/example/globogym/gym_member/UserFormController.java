@@ -17,7 +17,7 @@ public class UserFormController {
     public static void saveUser(String username, String password, String name, String surname, String birthDate, int managerId) {
         try {
             PrintWriter pw = new PrintWriter(new FileWriter(FILE_URL, true));
-            String userDTO = generateMaxId() + "," + username + "," + password + ",member," + name + "," + surname + "," + birthDate + "," + managerId + "," + "100";
+            String userDTO = generateMaxId("members") + "," + username + "," + password + ",member," + name + "," + surname + "," + birthDate + "," + managerId + "," + "100";
             createUserCredentials(username, password);
             pw.append("\n" + userDTO);
             ActionLogger.setLog("user created: " + username);
@@ -30,7 +30,7 @@ public class UserFormController {
     private static void createUserCredentials(String username, String password) {
         try {
             PrintWriter pw = new PrintWriter(new FileWriter("src/main/data/users.txt", true));
-            String userCredentialsDTO = "U" + generateMaxId() + "," + username + "," + password + ",member";
+            String userCredentialsDTO = "U" + generateMaxId("members") + "," + username + "," + password + ",member";
             pw.append("\n" + userCredentialsDTO);
             ActionLogger.setLog("successfully created credentials for user: " + username);
             pw.close();
@@ -39,10 +39,10 @@ public class UserFormController {
         }
     }
 
-    private static int generateMaxId() {
+    public static int generateMaxId(String file) {
         int maxId = 0;
         try {
-            BufferedReader input = new BufferedReader(new FileReader("src/main/data/members.txt"));
+            BufferedReader input = new BufferedReader(new FileReader("src/main/data/"+file+".txt"));
             String line;
             while ((line = input.readLine()) != null) {
                 String[] credentials = line.split(",");
