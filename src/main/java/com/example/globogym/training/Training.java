@@ -1,21 +1,27 @@
 package com.example.globogym.training;
 import com.example.globogym.actions.TrainingController;
 import com.example.globogym.gym_member.Member;
+import com.example.globogym.staff.Staff;
+
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Training {
     int id;
     String name;
+    int roomId;
     Date startDate;
     Date endDate;
+    Staff coach;
     ArrayList<Member> listOfMembers;
 
-    public Training(int id, String name, Date startDate, Date endDate) {
+    public Training(int id, String name, int roomId, Date startDate, Date endDate, int coachId) {
         this.id = id;
         this.name = name;
+        this.roomId = roomId;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.coach = Staff.getCoachById(coachId);
         this.listOfMembers = TrainingController.trainingsWithMembers.get(id);
     }
 

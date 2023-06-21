@@ -23,12 +23,15 @@ public class TrainingController implements Initializable {
 
     public static HashMap<Integer, ArrayList<Member>> trainingsWithMembers;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 //        trainingsWithMembers = generateTrainingsAssigning(); STH WRONG WITH READING FROM THE FILE NEED TO CONTROL IT
 //        listOfTrainings = generateTrainingsList();
         System.out.println("zaladowany");
     }
+
+
 
     private ArrayList<Training> generateTrainingsList() {
         ArrayList<Training> trainingsList = new ArrayList<>();
@@ -40,10 +43,12 @@ public class TrainingController implements Initializable {
                 String[] trainingData = line.split(",");
                 int trainingId = Integer.parseInt(trainingData[0]);
                 String trainingName = trainingData[1];
+                int roomId = Integer.parseInt(trainingData[2]);
                 Date startDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(trainingData[3]);
                 Date endDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(trainingData[4]);
+                int coachId = Integer.parseInt(trainingData[5]);
 
-                Training training = new Training(trainingId, trainingName, startDate, endDate);
+                Training training = new Training(trainingId, trainingName, roomId, startDate, endDate, coachId);
                 trainingsList.add(training);
             }
             input.close();

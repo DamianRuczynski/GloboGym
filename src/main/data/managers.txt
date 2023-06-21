@@ -1,7 +1,7 @@
 0,damian,welcome,Damian,Ruczynski,23/03/2002,15000,visionary,Hi There
 1,tomaszek,,Tomasz,Wojewodzki,18/09/2000,10000,autocratic,Hello
 2,anna,,Anna,Kowalska,07/06/1985,18000,transformational,Good morning
-3,martin,,Martin,Schmidt,12/11/1978,20000,persuasive,Good day everyone
+3,martin,,Martin,Schmidt,12/11/1978,20000,persuasive,Good day everyone!
 4,lucy,,Lucy,Johnson,30/04/1990,12000,coaching,Hello everyone
 5,robert,,Robert,Anderson,15/08/1982,16000,authoritative,Welcome aboard
 6,sophie,,Sophie,Dubois,25/07/1995,14000,democratic,Hi team
