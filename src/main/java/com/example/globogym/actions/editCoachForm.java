@@ -1,8 +1,8 @@
 package com.example.globogym.actions;
 
 import com.example.globogym.core.Helpers;
+import com.example.globogym.core.TrainingController;
 import com.example.globogym.core.TrainingFormController;
-import com.example.globogym.gym_member.Member;
 import com.example.globogym.staff.Staff;
 import com.example.globogym.training.Training;
 import core.ActionLogger;
@@ -15,7 +15,6 @@ import javafx.scene.control.ListView;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class editCoachForm implements Initializable {
@@ -29,8 +28,6 @@ public class editCoachForm implements Initializable {
     boolean isDelete = true;
 
     public static ArrayList<Training> listOfTrainings = TrainingController.generateTrainingsList();
-
-    public static HashMap<Integer, ArrayList<Member>> trainingsWithMembers = TrainingController.generateTrainingsAssigning();
 
 
     public void editCoachOnTraining(){

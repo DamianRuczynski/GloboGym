@@ -99,4 +99,8 @@ public abstract class User implements Identifiable {
         String formattedDate = outputFormat.format(getBirthDate());
         return formattedDate;
     }
+
+    public String getIdString() {
+        return String.valueOf(this.id);
+    }
 }

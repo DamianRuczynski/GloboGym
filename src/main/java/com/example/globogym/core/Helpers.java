@@ -1,8 +1,12 @@
 package com.example.globogym.core;
+import com.example.globogym.gym_member.Member;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import static com.example.globogym.MainApplication.trainingsWithMembers;
 
 public class Helpers {
     public static String parseDataToStringFormat(Date date){
@@ -16,5 +20,10 @@ public class Helpers {
             T item = list.get(i);
             item.setId(i + 1);
         }
+    }
+
+    public static void updateMembersList(int id, ArrayList<Member> list) {
+        System.out.println("updateu mapke");
+        trainingsWithMembers.put(id, list);
     }
 }

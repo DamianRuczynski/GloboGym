@@ -6,6 +6,9 @@ import com.example.globogym.staff.Staff;
 
 import java.util.ArrayList;
 import java.util.Date;
+
+import static com.example.globogym.MainApplication.trainingsWithMembers;
+
 public class Training implements Identifiable {
     int id;
     String name;
@@ -20,39 +23,8 @@ public class Training implements Identifiable {
         this.roomId = roomId;
         this.date = date;
         this.coach = Staff.getCoachById(coachId);
-        this.listOfMembers = new ArrayList<Member>();
+        this.listOfMembers = trainingsWithMembers.get(id) == null ? new ArrayList<>() : trainingsWithMembers.get(id);
     }
-
-
-
-//    private ArrayList<Member> getTrainingMembers(int id) {
-//        ArrayList<Member> members = new ArrayList<>();
-//        try {
-//            BufferedReader input = new BufferedReader(new FileReader("src/main/data/trainingsWithUsers.txt"));
-//            String line;
-//            while ((line = input.readLine()) != null) {
-//                String[] trainingData = line.split(";");
-//                int trainingId = Integer.parseInt(trainingData[0]);
-//                if (trainingId == id) {
-//                    String[] memberIds = trainingData[1].split(",");
-//                    for (String memberId : memberIds) {
-//                        int memberIdInt = Integer.parseInt(memberId);
-//                        members.add(AllMembersList.membersList.get(memberIdInt));
-//                    }
-//                    break;
-//                }
-//            }
-//            input.close();
-//        } catch (FileNotFoundException e) {
-//            ActionLogger.setLog("An error occurred while reading the training database - file not found");
-//            System.out.println(e.getMessage());
-//        } catch (IOException e) {
-//            ActionLogger.setLog("Somehow the training database is empty");
-//            System.out.println(e.getMessage());
-//        }
-//        return members;
-//    }
-
 
     public Training showStats(int id) {
         return this;
@@ -99,5 +71,9 @@ public class Training implements Identifiable {
 
     public Staff getCoach() {
         return this.coach;
+    }
+
+    public ArrayList<Member> getMembers() {
+        return this.listOfMembers;
     }
 }
