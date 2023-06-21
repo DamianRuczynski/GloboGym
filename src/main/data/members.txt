@@ -1,5 +1,5 @@
 0,romek,welcome,member,Roman,Wojciechowski,23/07/1985,0,0
-1,j,,member,John,Douee,23/07/1997,3,0
+1,,,member,John,Douee,23/07/1997,3,0
 2,loganno,welcome,member,Logan,Henderson,29/11/2022,8,0
 3,garonnn,welcome,member,Garry,Neville,07/02/1985,5,0
 4,tranHardWork,welcome,member,Tran,Water,06/06/2004,9,0

@@ -62,4 +62,7 @@ public class Member extends User{
         return this.account.getBalance();
     }
 
+    public Manager getManager() {
+        return this.manager;
+    }
 }

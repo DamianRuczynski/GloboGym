@@ -26,5 +26,6 @@ public class Account {
 
     public void makeActive() {
         this.active = true;
+        this.balance += 100;
     }
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.globogym.actions.ShowAccountView">
+   <children>
+      <BorderPane layoutX="83.0" layoutY="62.0" prefHeight="377.0" prefWidth="554.0">
+         <top>
+            <Label fx:id="nameField" alignment="CENTER" prefHeight="82.0" prefWidth="677.0" style="-fx-background-color: #444;" text="Damian your account balance:" textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Candara" size="20.0" />
+               </font>
+            </Label>
+         </top>
+         <bottom>
+            <Button fx:id="payAccount" mnemonicParsing="false" onAction="#setPayAccount" prefHeight="44.0" prefWidth="123.0" style="-fx-background-color: black; -fx-background-radius: 3px;" text="Pay Account" textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Candara" size="17.0" />
+               </font>
+            </Button>
+         </bottom>
+         <center>
+            <Label fx:id="accountBalanceField" alignment="CENTER" contentDisplay="CENTER" prefHeight="187.0" prefWidth="141.0" style="-fx-background-color: #444; -fx-background-radius: 10px;" text="130zl" textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Candara" size="32.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

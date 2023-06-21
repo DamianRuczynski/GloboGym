@@ -3,8 +3,10 @@ package com.example.globogym.core;
 import com.example.globogym.MainApplication;
 import com.example.globogym.LoginController;
 import com.example.globogym.actions.Actions;
+import com.example.globogym.gym_member.Member;
 import com.example.globogym.manager.Manager;
 import core.ActionLogger;
+import core.Role;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -49,12 +51,12 @@ public class HelloController {
         nameLabel.setText("Hello: " + (LoginController.loggedUser.getName()));
     }
 
-//    public void showMessage(User user){
-//
-//        greetings.setText(LoginController.loggedUser instanceof Member ? Manager.greetings() : "");
-//    }
+    public void showMessage(){
+        greetingsLabel.setText(LoginController.userRole == Role.MEMBER ? ((Member)LoginController.loggedUser).getManager().greetings() : "");
+    }
 
     public void generateActionListButtons(List<String> allowedActions) {
+        showMessage();
         actionListRoot.setSpacing(10);
         actionListRoot.setPadding(new Insets(10));
 
