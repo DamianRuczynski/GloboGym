@@ -1,11 +1,12 @@
 package com.example.globogym.training;
 import com.example.globogym.core.Helpers;
+import com.example.globogym.core.Identifiable;
 import com.example.globogym.gym_member.Member;
 import com.example.globogym.staff.Staff;
 
 import java.util.ArrayList;
 import java.util.Date;
-public class Training {
+public class Training implements Identifiable {
     int id;
     String name;
     int roomId;
@@ -77,6 +78,11 @@ public class Training {
 
     public int getId() {
         return this.id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setCoach(Staff coach) {

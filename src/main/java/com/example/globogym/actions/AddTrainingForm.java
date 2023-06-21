@@ -19,7 +19,7 @@ public class AddTrainingForm implements Initializable {
     ListView nameListField, roomListField,staffListField;
     @FXML
     DatePicker trainingDateField;
-    public static String[] trainingNames = new String[]{"abs", "push-ups"," running","weightlifting"};
+    public static String[] trainingNames = new String[]{"abs", "push-ups","running","weightlifting"};
     private void populateFields() {
         for (String name : trainingNames) {
             nameListField.getItems().add(name);

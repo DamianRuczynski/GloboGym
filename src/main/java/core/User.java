@@ -1,11 +1,13 @@
 package core;
 
+import com.example.globogym.core.Identifiable;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public abstract class User {
+public abstract class User implements Identifiable {
 
     protected int id;
     public String username;
@@ -46,6 +48,7 @@ public abstract class User {
     public int getId() {
         return this.id;
     }
+    public void setId(int id) {this.id = id;}
 
 
     public String getName() {
