@@ -4,6 +4,7 @@ import com.example.globogym.LoginController;
 import com.example.globogym.gym_member.Member;
 import com.example.globogym.gym_member.UserFormController;
 import com.example.globogym.manager.Manager;
+import core.ActionLogger;
 import core.Role;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -67,16 +68,16 @@ public class CreateUserForm implements Initializable {
             System.out.println("Selected Manager: " + selectedManager.getName());
         }
 
-        System.out.println("Form saved!");
+       ActionLogger.setLog("Form saved!");
     }
 
     public void cancelForm() {
-        System.out.println("Form canceled!");
+        ActionLogger.setLog("Form canceled!");
     }
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("zaladowany");
+        ActionLogger.setLog("initialize userForm");
         switch (LoginController.userRole) {
             case MEMBER:
                 populateMemberFields();

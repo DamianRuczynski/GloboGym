@@ -51,8 +51,8 @@ public class HelloController {
         nameLabel.setText("Hello: " + (LoginController.loggedUser.getName()));
     }
 
-    public void showMessage(){
-        greetingsLabel.setText(LoginController.userRole == Role.MEMBER ? ((Member)LoginController.loggedUser).getManager().greetings() : "");
+    public void showMessage() {
+        greetingsLabel.setText(LoginController.userRole == Role.MEMBER ? ((Member) LoginController.loggedUser).getManager().greetings() : "");
     }
 
     public void generateActionListButtons(List<String> allowedActions) {
@@ -67,7 +67,7 @@ public class HelloController {
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    ActionLogger.setLog( "execute: " + action);
+                    ActionLogger.setLog("execute: " + action);
                     loadOutlet(Actions.callMethod(action));
                 }
             });
@@ -103,7 +103,7 @@ public class HelloController {
 
     public void logout(ActionEvent e) throws IOException {
         LoginController.loggedUser = null;
-        Manager.managersList = new ArrayList<>();
+        Manager.managersList = null;
         FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("login-view.fxml"));
         root = loader.load();
         ActionLogger.setLog("user logout");
@@ -113,13 +113,12 @@ public class HelloController {
         stage.show();
     }
 
-    public static void setTimeout(Runnable runnable, int delay){
+    public static void setTimeout(Runnable runnable, int delay) {
         new Thread(() -> {
             try {
                 Thread.sleep(delay);
                 runnable.run();
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 System.err.println(e);
             }
         }).start();

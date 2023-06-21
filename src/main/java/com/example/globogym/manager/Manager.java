@@ -13,11 +13,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Manager extends User {
-    public static ArrayList<Manager> managersList = new ArrayList<>();
-    public static String managerMessage;
-    private String name;
-    private String surname;
-    private Date birthdate;
+    public static ArrayList<Manager> managersList;
+    private  String greetings;
     private int salary;
     private ManagementStyle managementStyle;
 
@@ -25,11 +22,11 @@ public class Manager extends User {
         super(id, username, password, role, name, surname, birthdate);
         this.salary = salary;
         this.managementStyle = ManagementStyle.valueOf(managementStyle.toUpperCase());
-        managerMessage = message;
+        this.greetings = message;
     }
 
-    public static String greetings() {
-        return managerMessage;
+    public String greetings() {
+        return this.greetings;
     }
 
     public static Manager getManagerById(int managerId) {
@@ -38,6 +35,7 @@ public class Manager extends User {
     }
 
     public static void generateManagersList(){
+        managersList = new ArrayList<Manager>();
         try {
             BufferedReader input = new BufferedReader(new FileReader("src/main/data/managers.txt"));
             String line;
@@ -56,4 +54,15 @@ public class Manager extends User {
     }
 
 
+    public void setGreeting(String message) {
+        this.greetings = message;
+    }
+
+    public String getManagementStyle() {
+        return String.valueOf(this.managementStyle).toLowerCase();
+    }
+
+    public String getSalary() {
+        return String.valueOf(this.salary);
+    }
 }
