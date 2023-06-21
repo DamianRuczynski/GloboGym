@@ -1,11 +1,10 @@
 package com.example.globogym.training;
-import com.example.globogym.actions.TrainingController;
+import com.example.globogym.core.Helpers;
 import com.example.globogym.gym_member.Member;
 import com.example.globogym.staff.Staff;
 
 import java.util.ArrayList;
 import java.util.Date;
-
 public class Training {
     int id;
     String name;
@@ -20,7 +19,7 @@ public class Training {
         this.roomId = roomId;
         this.date = date;
         this.coach = Staff.getCoachById(coachId);
-        this.listOfMembers = TrainingController.trainingsWithMembers.get(id);
+        this.listOfMembers = new ArrayList<Member>();
     }
 
 
@@ -68,4 +67,31 @@ public class Training {
     public void deleteUser(int id) {
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public String getDateAndName() {
+        return Helpers.parseDataToStringFormat(this.date)+ " - " + this.name;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setCoach(Staff coach) {
+        this.coach = coach;
+    }
+
+    public int getRoomNumber() {
+        return this.roomId;
+    }
+
+    public String getTrainingDateString() {
+        return Helpers.parseDataToStringFormat(this.date);
+    }
+
+    public Staff getCoach() {
+        return this.coach;
+    }
 }

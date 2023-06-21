@@ -1,6 +1,7 @@
 package com.example.globogym.actions;
 
 import com.example.globogym.MainApplication;
+import com.example.globogym.core.TrainingFormController;
 import com.example.globogym.staff.Staff;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

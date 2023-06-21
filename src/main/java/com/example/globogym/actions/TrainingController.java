@@ -18,9 +18,7 @@ import java.util.ResourceBundle;
 
 public class TrainingController {
 
-    public static ArrayList<Training> listOfTrainings;
 
-    public static HashMap<Integer, ArrayList<Member>> trainingsWithMembers;
 
 
 
@@ -33,18 +31,18 @@ public class TrainingController {
 
 
 
-    private ArrayList<Training> generateTrainingsList() {
+    public static ArrayList<Training> generateTrainingsList() {
         ArrayList<Training> trainingsList = new ArrayList<>();
 
         try {
-            BufferedReader input = new BufferedReader(new FileReader("trainings.txt"));
+            BufferedReader input = new BufferedReader(new FileReader("src/main/data/trainings.txt"));
             String line;
             while ((line = input.readLine()) != null) {
                 String[] trainingData = line.split(",");
                 int trainingId = Integer.parseInt(trainingData[0]);
                 String trainingName = trainingData[1];
                 int roomId = Integer.parseInt(trainingData[2]);
-                Date startDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(trainingData[3]);
+                Date startDate = new SimpleDateFormat("dd/MM/yyyy").parse(trainingData[3]);
                 int coachId = Integer.parseInt(trainingData[4]);
 
                 Training training = new Training(trainingId, trainingName, roomId, startDate, coachId);
@@ -64,14 +62,14 @@ public class TrainingController {
         return trainingsList;
     }
 
-    private HashMap<Integer, ArrayList<Member>> generateTrainingsAssigning() {
+    public static HashMap<Integer, ArrayList<Member>> generateTrainingsAssigning() {
         HashMap<Integer, ArrayList<Member>> trainingsAssigning = new HashMap<>();
 
         try {
             BufferedReader input = new BufferedReader(new FileReader("src/main/data/trainingsWithUsers.txt"));
             String line;
             while ((line = input.readLine()) != null) {
-                String[] trainingData = line.split(";");
+                String[] trainingData = line.split(":");
                 int trainingId = Integer.parseInt(trainingData[0]);
                 String[] memberIds = trainingData[1].split(",");
                 ArrayList<Member> members = new ArrayList<>();

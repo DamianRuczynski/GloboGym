@@ -36,6 +36,7 @@ public class Actions {
     }
 
 
+
     public static void payAccount() {
         ActionLogger.setLog("account payment is started");
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
