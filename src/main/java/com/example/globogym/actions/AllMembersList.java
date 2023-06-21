@@ -27,6 +27,7 @@ public class AllMembersList implements Initializable {
 
     public void generateMembersList() {
         membersListView.setPadding(new Insets(10));
+        membersList = ListUser.generateList(Role.MEMBER);
         for (Member member : membersList) {
             Label label = new Label();
             label.setText(member.getFullName());

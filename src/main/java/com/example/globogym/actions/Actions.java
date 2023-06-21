@@ -13,7 +13,7 @@ public class Actions {
     public static Map<Role, List<String>> permissions = new HashMap<>();
 
     static {
-        permissions.put(Role.MEMBER, Arrays.asList("enterTraining", "showTrainings", "signOutFromTraining", "showAccount", "payAccount", "editData", "showStats"));
+        permissions.put(Role.MEMBER, Arrays.asList("enterTraining", "showTrainings", "signOutFromTraining", "showAccount", "editData", "showStats"));
         permissions.put(Role.STAFF, Arrays.asList("createMember", "addTraining", "setStaffToTraining", "deleteTraining", "assignMember", "deleteMember"));
         permissions.put(Role.MANAGER, Arrays.asList("createMember", "assignMember", "deleteMember", "addEmployee", "editGreetings", "showAllMembers", "showClubStats", "trackActivity"));
     }

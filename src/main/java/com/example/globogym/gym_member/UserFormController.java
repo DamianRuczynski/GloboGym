@@ -17,7 +17,8 @@ public class UserFormController {
     public static void saveUser(String username, String password, String name, String surname, String birthDate, int managerId) {
         try {
             PrintWriter pw = new PrintWriter(new FileWriter(FILE_URL, true));
-            String userDTO = generateMaxId("members") + "," + username + "," + password + ",member," + name + "," + surname + "," + birthDate + "," + managerId + "," + "100";
+            int userId = generateMaxId("members");
+            String userDTO = userId + "," + username + "," + password + ",member," + name + "," + surname + "," + birthDate + "," + managerId + "," + userId;
             createUserCredentials(username, password);
             pw.append("\n" + userDTO);
             ActionLogger.setLog("user created: " + username);

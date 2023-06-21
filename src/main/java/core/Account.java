@@ -1,15 +1,19 @@
 package core;
 
+import com.example.globogym.core.UserDataService;
+
 import java.util.ArrayList;
 
 public class Account {
-    public static ArrayList<Account> accountsList = new ArrayList<Account>();
+    public static ArrayList<Account> accountsList = UserDataService.getAccounts();
+    int id;
     int balance;
     boolean active;
 
-    public Account(int balance){
+    public Account(int id, int balance){
+        this.id = id;
         this.balance = balance;
-        this.active = true;
+        this.active = this.balance > 0;
     }
 
     public static boolean haveAccountWithId(int accountId) {
@@ -27,5 +31,9 @@ public class Account {
     public void makeActive() {
         this.active = true;
         this.balance += 100;
+    }
+
+    public int getId() {
+        return this.id;
     }
 }

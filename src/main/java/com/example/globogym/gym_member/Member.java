@@ -1,5 +1,6 @@
 package com.example.globogym.gym_member;
 
+import com.example.globogym.core.UserDataService;
 import com.example.globogym.manager.Manager;
 import core.Account;
 import core.ActionLogger;
@@ -14,7 +15,7 @@ public class Member extends User{
     public Member(int id, String username, String password, Role role, String name, String surname, String birthdate, String managerId, String accountId) {
         super(id, username, password, role, name, surname, birthdate);
             this.manager = Manager.getManagerById(Integer.parseInt(managerId));
-            this.account = Account.haveAccountWithId(Integer.parseInt(accountId)) ? Account.getAccount(Integer.parseInt(accountId)) : new Account(0);
+            this.account = Account.haveAccountWithId(Integer.parseInt(accountId)) ? Account.getAccount(Integer.parseInt(accountId)) : new Account(id, 0);
     }
 
 
@@ -41,6 +42,7 @@ public class Member extends User{
     public void payCard() {
         ActionLogger.setLog("the card is being paid...");
         this.account.makeActive();
+        UserDataService.updateAccount(this.id);
         ActionLogger.setLog("user: "+ getName() + " has paid his account");
     }
 
