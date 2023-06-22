@@ -76,4 +76,8 @@ public class Training implements Identifiable {
     public ArrayList<Member> getMembers() {
         return this.listOfMembers;
     }
+
+    public ArrayList<Member> getListOfMembers() {
+        return this.listOfMembers;
+    }
 }
