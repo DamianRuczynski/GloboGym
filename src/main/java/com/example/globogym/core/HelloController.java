@@ -26,8 +26,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.globogym.LoginController.userRole;
 
 public class HelloController {
     @FXML
@@ -52,7 +53,7 @@ public class HelloController {
     }
 
     public void showMessage() {
-        greetingsLabel.setText(LoginController.userRole == Role.MEMBER ? ((Member) LoginController.loggedUser).getManager().greetings() : "");
+        greetingsLabel.setText(userRole == Role.MEMBER ? ((Member) LoginController.loggedUser).getManager().greetings() : "");
     }
 
     public void generateActionListButtons(List<String> allowedActions) {
@@ -75,6 +76,26 @@ public class HelloController {
             actionListRoot.getChildren().add(button);
         }
 //        setTimeout(() -> System.out.println("testowy setTimeout"), 1000);
+
+        Button homeButton = new Button("HOME");
+        homeButton.setStyle("-fx-background-color: white; -fx-text-fill: black; -fx-font-size: 15px; -fx-background-radius: 3px;");
+        homeButton.prefWidthProperty().bind(actionListRoot.widthProperty());
+        homeButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                loadOutlet(loadUserHomeView());
+            }
+        });
+        actionButtons.add(homeButton);
+        actionListRoot.getChildren().add(homeButton);
+    }
+
+    private String loadUserHomeView() {
+        return switch (userRole) {
+            case STAFF -> "staff-member-view.fxml";
+            case MEMBER -> "gym-member-view.fxml";
+            case MANAGER -> "manager-view.fxml";
+        };
     }
 
     private String buildName(String action) {

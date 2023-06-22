@@ -1,10 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.globogym.gym_member.GymMemberHelloController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.globogym.staff.StaffHelloController">
    <children>
-      <Label fx:id="nameLabel" layoutX="14.0" layoutY="24.0" prefHeight="61.0" prefWidth="369.0" style="-fx-border-color: #ddd;" />
+      <VBox alignment="CENTER" layoutX="42.0" layoutY="38.0" prefHeight="414.0" prefWidth="440.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="69.0" prefWidth="287.0" style="-fx-background-color: #000;" text="HELLO GYM MEMBER" textFill="WHITE">
+               <font>
+                  <Font name="Candara" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="62.0" prefWidth="440.0" text="Please choose the action and work well!" textFill="WHITE">
+               <font>
+                  <Font name="Candara" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="221.0" prefHeight="62.0" prefWidth="440.0" text="THE MORE YOU WORK THE MORE YOU GAIN" textFill="WHITE">
+               <font>
+                  <Font name="Candara" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="252.0" prefHeight="62.0" prefWidth="440.0" text="Work hard play hard!" textFill="WHITE">
+               <font>
+                  <Font name="Candara" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="284.0" prefHeight="62.0" prefWidth="440.0" text="GLOBO GYM" textFill="WHITE">
+               <font>
+                  <Font name="Candara Italic" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
