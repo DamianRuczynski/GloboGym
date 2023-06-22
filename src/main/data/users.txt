@@ -21,3 +21,4 @@ U6,andre,welcome,member
 U7,york,welcome,member
 U8,carter,welcome,member
 U9,alexx,welcome,member
+S3,marios,welcome,staff

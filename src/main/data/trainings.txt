@@ -1,6 +1,6 @@
 0,weightlifting,11,17/06/2023,0
 1,running,11,06/07/2023,2
-2,running,11,01/07/2023,0
+2,running,11,01/07/2023,2
 3,weightlifting,11,02/07/2023,1
 4,running,11,03/07/2023,2
 5,push-ups,10,29/05/2023,1
