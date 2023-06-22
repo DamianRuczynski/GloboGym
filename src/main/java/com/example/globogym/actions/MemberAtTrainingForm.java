@@ -51,14 +51,17 @@ public class MemberAtTrainingForm implements Initializable {
         }
 
         if (isForUser) {
-            listOfTrainings = switch (this.memberAction) {
+            ArrayList<Training> filteredList = switch (this.memberAction) {
                 case ENTER -> populateEnteranceTrainings();
                 case SIGN, SHOW -> populateAssignedTrainings();
             };
-        }
-        for (Training training : listOfTrainings) {
-//            Member member = AllMembersList.membersList.get(((Member) LoginController.loggedUser).getId());
-            trainingListView.getItems().add(training);
+            for (Training training : filteredList) {
+                trainingListView.getItems().add(training);
+            }
+        }else{
+            for (Training training : listOfTrainings) {
+                trainingListView.getItems().add(training);
+            }
         }
         trainingListView.setCellFactory(p -> new ListCell<Training>() {
             @Override
@@ -76,7 +79,6 @@ public class MemberAtTrainingForm implements Initializable {
 
     private ArrayList<Training> populateEnteranceTrainings() {
         ArrayList<Training> filteredTrainings = new ArrayList<>();
-
         for (Training training : listOfTrainings) {
             Member member = AllMembersList.membersList.get(((Member) LoginController.loggedUser).getId());
             boolean isAssigned = trainingsWithMembers.get(training.getId()).contains(member);
@@ -84,13 +86,11 @@ public class MemberAtTrainingForm implements Initializable {
                 filteredTrainings.add(training);
             }
         }
-
         return filteredTrainings;
     }
 
     private ArrayList<Training> populateAssignedTrainings() {
         ArrayList<Training> filteredTrainings = new ArrayList<>();
-
         for (Training training : listOfTrainings) {
             Member member = AllMembersList.membersList.get(((Member) LoginController.loggedUser).getId());
             boolean isAssigned = trainingsWithMembers.get(training.getId()).contains(member);
@@ -157,10 +157,36 @@ public class MemberAtTrainingForm implements Initializable {
         }
     }
 
+
+    public void deleteMemberFromTraining() {
+        System.out.println("deleting member...");
+        Training training = trainingListView.getSelectionModel().getSelectedItem();
+        Member member = AllMembersList.membersList.get(((Member) LoginController.loggedUser).getId());
+
+        if (training != null && member != null) {
+            int trainingId = training.getId();
+            ArrayList<Member> members = trainingsWithMembers.get(trainingId);
+
+            if (members != null) {
+                if (members.removeIf(m -> m.getId() == member.getId())) {
+                    trainingsWithMembers.put(trainingId, members);
+                    message.setText("Member with ID " + member.getId() + " has been successfully removed from the training.");
+                    overWriteMembersList();
+                } else {
+                    message.setText("Member with ID " + member.getId() + " does not exist in the selected training.");
+                }
+            } else {
+                message.setText("No members are assigned to the selected training.");
+            }
+        } else {
+            message.setText("Please select a training and a member.");
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String fileName = Arrays.stream(url.getFile().split("/")).reduce((first, second) -> second).orElse(null);
-        this.isForUser = fileName.equals("enter-training-view.fxml");
+        this.isForUser = fileName.equals("enter-training-view.fxml") || fileName.equals("sign-out-from-training-view.fxml") || fileName.equals("show-trainings-view.fxml");
         if(this.isForUser){
             String action = fileName.split("-")[0];
             System.out.println(action);
@@ -168,4 +194,5 @@ public class MemberAtTrainingForm implements Initializable {
         }
         populateFields();
     }
+
 }
