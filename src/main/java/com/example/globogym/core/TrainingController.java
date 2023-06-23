@@ -46,34 +46,6 @@ public class TrainingController {
         }
         return trainingsList;
     }
-
-//    public static ArrayList<Member> getTrainingMembers(int id) {
-//        ArrayList<Member> members = new ArrayList<>();
-//        try {
-//            BufferedReader input = new BufferedReader(new FileReader("src/main/data/trainingsWithUsers.txt"));
-//            String line;
-//            while ((line = input.readLine()) != null) {
-//                String[] trainingData = line.split(";");
-//                int trainingId = Integer.parseInt(trainingData[0]);
-//                if (trainingId == id) {
-//                    String[] memberIds = trainingData[1].split(",");
-//                    for (String memberId : memberIds) {
-//                        int memberIdInt = Integer.parseInt(memberId);
-//                        members.add(AllMembersList.membersList.get(memberIdInt));
-//                    }
-//                    break;
-//                }
-//            }
-//            input.close();
-//        } catch (FileNotFoundException e) {
-//            ActionLogger.setLog("An error occurred while reading the training database - file not found");
-//            System.out.println(e.getMessage());
-//        } catch (IOException e) {
-//            ActionLogger.setLog("Somehow the training database is empty");
-//            System.out.println(e.getMessage());
-//        }
-//        return members;
-//    }
     public static HashMap<Integer, ArrayList<Member>> generateTrainingsAssigning() {
         HashMap<Integer, ArrayList<Member>> trainingsAssigning = new HashMap<>();
 

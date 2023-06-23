@@ -44,7 +44,7 @@ public class editCoachForm implements Initializable {
     }
 
     public void deleteTraining(){
-        System.out.println("delete training..");
+        ActionLogger.setLog("delete training..");
         Training training = trainingListView.getSelectionModel().getSelectedItem();
         listOfTrainings.remove(training.getId());
         Helpers.repairIds(listOfTrainings);

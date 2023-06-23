@@ -36,7 +36,6 @@ public class CreateUserForm implements Initializable {
     }
 
     private void populateManagerFields() {
-        System.out.println("manadzerskie costam");
         for (Manager m : Manager.managersList) {
             managerListField.getItems().add(m);
         }
@@ -65,7 +64,7 @@ public class CreateUserForm implements Initializable {
         } else {
             Manager selectedManager = managerListField.getSelectionModel().getSelectedItem();
             UserFormController.saveUser(username, password, name, surname, birthDate, selectedManager.getId());
-            System.out.println("Selected Manager: " + selectedManager.getName());
+            ActionLogger.setLog("Selected Manager: " + selectedManager.getName());
         }
 
        ActionLogger.setLog("Form saved!");

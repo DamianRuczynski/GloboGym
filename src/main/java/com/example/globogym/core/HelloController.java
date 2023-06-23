@@ -113,7 +113,6 @@ public class HelloController {
     public void loadOutlet(String userRoleScene) {
         try {
             FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource(userRoleScene));
-            System.out.println(MainApplication.class.getResource(userRoleScene));
             Node newContent = loader.load();
             outlet.setCenter(newContent);
             outlet.setAlignment(outlet, Pos.CENTER);/// in future use this method also for load proper view depends on button clik
@@ -140,7 +139,7 @@ public class HelloController {
                 Thread.sleep(delay);
                 runnable.run();
             } catch (Exception e) {
-                System.err.println(e);
+                ActionLogger.setLog("cannot invoke thread");
             }
         }).start();
     }

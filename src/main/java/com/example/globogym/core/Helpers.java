@@ -1,5 +1,6 @@
 package com.example.globogym.core;
 import com.example.globogym.gym_member.Member;
+import core.ActionLogger;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -23,7 +24,7 @@ public class Helpers {
     }
 
     public static void updateMembersList(int id, ArrayList<Member> list) {
-        System.out.println("updateu mapke");
+        ActionLogger.setLog("update make");
         trainingsWithMembers.put(id, list);
     }
 }

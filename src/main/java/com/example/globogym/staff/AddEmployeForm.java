@@ -25,12 +25,10 @@ public class AddEmployeForm {
         String password = passwordField.getText();
         String birthDate = birthDateField.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         StaffFormController.saveCoach(username, password, name, surname, birthDate, salary);
-        System.out.println("user created");
         ActionLogger.setLog("Form saved! USER CREATED");
     }
 
     public void cancelForm() {
-        System.out.println("form cancelled");
         ActionLogger.setLog("form cancelled");
     }
 }

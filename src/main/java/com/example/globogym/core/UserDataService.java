@@ -11,7 +11,6 @@ import java.util.Optional;
 public class UserDataService {
 
     public static void saveManagers(){
-        System.out.println("savaeeeeee");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/data/managers.txt"))) {
             for (Manager m : Manager.managersList) {
                 String line = m.getId() + "," +
@@ -48,11 +47,11 @@ public class UserDataService {
 
             input.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Error: File not found");
+            ActionLogger.setLog("Error: File not found");
         } catch (IOException e) {
-            System.out.println("Error: Failed to read file");
+            ActionLogger.setLog("Error: Failed to read file");
         } catch (NumberFormatException e) {
-            System.out.println("Error: Invalid account data");
+            ActionLogger.setLog("Error: Invalid account data");
         }
 
         return accounts;

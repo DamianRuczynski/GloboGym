@@ -24,7 +24,6 @@ public class EditManager implements Initializable {
         for(Manager m : Manager.managersList){
             if(m.getId() == id){
                 m.setGreeting(editGreetingField.getText());
-                System.out.println(m.greetings());
             }
         }
 

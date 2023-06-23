@@ -20,19 +20,19 @@ public class Actions {
 
 //MEMBER
     public static void enterTraining() {
-        System.out.println("Entering training...");
+        ActionLogger.setLog("Entering training...");
     }
 
     public static void showTrainings() {
-        System.out.println("Showing trainings...");
+        ActionLogger.setLog("Showing trainings...");
     }
 
     public static void signOutFromTraining() {
-        System.out.println("Signing out from training...");
+        ActionLogger.setLog("Signing out from training...");
     }
 
     public static void showAccount() {
-        System.out.println("Showing account...");
+        ActionLogger.setLog("Showing account...");
     }
 
 
@@ -56,7 +56,7 @@ public class Actions {
     }
 
     public static void showStats() {
-        System.out.println("Showing stats...");
+        ActionLogger.setLog("Showing stats...");
     }
 
 
@@ -64,15 +64,15 @@ public class Actions {
     //STAFF
 
     public static void addTraining() {
-        System.out.println("Adding training...");
+        ActionLogger.setLog("Adding training...");
     }
 
     public static void setStaffToTraining() {
-        System.out.println("Looking for free staff...");
+        ActionLogger.setLog("Looking for free staff...");
     }
 
     public static void deleteTraining() {
-        System.out.println("Deleting training...");
+        ActionLogger.setLog("Deleting training...");
     }
 
 
@@ -84,31 +84,31 @@ public class Actions {
     }
 
     public static void assignMember() {
-        System.out.println("Assigning member...");
+        ActionLogger.setLog("Assigning member...");
     }
 
     public static void deleteMember() {
-        System.out.println("Deleting member...");
+        ActionLogger.setLog("Deleting member...");
     }
 
     public static void addEmployee() {
-        System.out.println("Adding employee...");
+        ActionLogger.setLog("Adding employee...");
     }
 
     public static void editGreetings() {
-        System.out.println("Editing greetings...");
+        ActionLogger.setLog("Editing greetings...");
     }
 
     public static void showAllMembers() {
-        System.out.println("Showing all members...");
+        ActionLogger.setLog("Showing all members...");
     }
 
     public static void showClubStats() {
-        System.out.println("Showing club stats...");
+        ActionLogger.setLog("Showing club stats...");
     }
 
     public static void trackActivity() {
-        System.out.println("Tracking activity...");
+        ActionLogger.setLog("Tracking activity...");
     }
 
     //OTHERS
@@ -128,7 +128,6 @@ public class Actions {
             }
         }
         sb.append("-view.fxml");
-        System.out.println(sb);
         return sb.toString();
     }
 

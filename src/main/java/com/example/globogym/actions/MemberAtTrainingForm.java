@@ -159,7 +159,7 @@ public class MemberAtTrainingForm implements Initializable {
 
 
     public void deleteMemberFromTraining() {
-        System.out.println("deleting member...");
+        ActionLogger.setLog("deleting member...");
         Training training = trainingListView.getSelectionModel().getSelectedItem();
         Member member = AllMembersList.membersList.get(((Member) LoginController.loggedUser).getId());
 
@@ -189,7 +189,6 @@ public class MemberAtTrainingForm implements Initializable {
         this.isForUser = fileName.equals("enter-training-view.fxml") || fileName.equals("sign-out-from-training-view.fxml") || fileName.equals("show-trainings-view.fxml");
         if(this.isForUser){
             String action = fileName.split("-")[0];
-            System.out.println(action);
             this.memberAction = MemberAction.valueOf(action.toUpperCase());
         }
         populateFields();

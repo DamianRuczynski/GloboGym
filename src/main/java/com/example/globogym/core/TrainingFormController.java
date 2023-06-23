@@ -28,7 +28,6 @@ public class TrainingFormController {
             updateMembersList(id, new ArrayList<Member>());
             pw.append("\n" + trainingDTO);
             ActionLogger.setLog("training added: " + name);
-            System.out.println("training added");
             pw.close();
         } catch (IOException e) {
             ActionLogger.setLog("cannot create training");
@@ -41,7 +40,6 @@ public class TrainingFormController {
                 String prefix = t.getId() == 0 ? "":"\n";
                 String trainingDTO = prefix + t.getId() + "," + t.getName() + "," + t.getRoomNumber() + "," + t.getTrainingDateString() + "," + t.getCoach().getId();
                 updateMembersList(t.getId(), t.getMembers());
-                System.out.println(trainingDTO);
                 writer.write(trainingDTO);
             }
             overWriteMembersList();

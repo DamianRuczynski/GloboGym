@@ -29,9 +29,8 @@ public abstract class User implements Identifiable {
             ActionLogger.setLog("user " + this.name + " logged!");
         } catch (ParseException e) {
             ActionLogger.setLog("cannot create user");
-        } finally {
-//            System.out.println(this.name + " " + this.surname + " born in: " + this.birthdate);
         }
+
         ;
 
     }
@@ -48,7 +47,10 @@ public abstract class User implements Identifiable {
     public int getId() {
         return this.id;
     }
-    public void setId(int id) {this.id = id;}
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
 
     public String getName() {
@@ -81,14 +83,12 @@ public abstract class User implements Identifiable {
     }
 
     public void setPassword(String password) {
-    this.password = password;
+        this.password = password;
     }
 
     public void setBirthDate(String birthdate) {
         try {
             this.birthdate = new SimpleDateFormat("dd/MM/yyyy").parse(birthdate);
-            System.out.print("Z USERA ");
-            System.out.println(this.birthdate);
         } catch (ParseException e) {
             ActionLogger.setLog("error occurs while parsing data");
         }
