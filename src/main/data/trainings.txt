@@ -4,3 +4,4 @@
 4,push-ups,10,29/05/2023,1
 5,push-ups,12,25/06/2023,2
 6,weightlifting,17,09/07/2023,2
+7,weightlifting,12,26/06/2023,2

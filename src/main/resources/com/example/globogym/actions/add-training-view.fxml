@@ -97,5 +97,10 @@
             </Button>
          </children>
       </HBox>
+      <Label fx:id="message" alignment="CENTER" layoutX="158.0" layoutY="14.0" prefHeight="38.0" prefWidth="404.0" textFill="WHITE">
+         <font>
+            <Font name="Candara" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
